@@ -48,7 +48,7 @@ message TaskReadyGoReq {
   string task_id = 1;
   string contract_id = 2;
   string data_id = 3;
-  int32 party_id = 4;
+  int32 node_id = 4;
   string env_id = 5;
   message Peer {
     string ip = 1;
@@ -57,6 +57,7 @@ message TaskReadyGoReq {
     string name = 4;
   }
   repeated Peer peers = 6;
+  map<string, string> user_cfg = 7;
 }
 
 message GetStatusReply {
