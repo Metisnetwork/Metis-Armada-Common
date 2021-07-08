@@ -39,7 +39,7 @@ service DataProvider {
 }
 
 message DownloadRequest {
-  string data_id = 1;
+  string file_path = 1;
 }
 
 enum TaskStatus {
@@ -75,6 +75,7 @@ message UploadRequest {
 message UploadReply {
   bool ok = 1;
   string data_id = 2;
+  string file_path = 3;
 }
 
 message ListDataReply {
