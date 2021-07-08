@@ -53,7 +53,7 @@ message TaskReadyGoReq {
   message Peer {
     string ip = 1;
     int32 port = 2;
-    int32 party = 3;
+    string party = 3;
     string name = 4;
   }
   repeated Peer peers = 6;
