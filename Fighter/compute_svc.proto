@@ -48,7 +48,7 @@ message TaskReadyGoReq {
   string task_id = 1;
   string contract_id = 2;
   string data_id = 3;
-  int32 node_id = 4;
+  string node_id = 4;
   string env_id = 5;
   message Peer {
     string ip = 1;
