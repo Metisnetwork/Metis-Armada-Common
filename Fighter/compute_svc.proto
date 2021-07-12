@@ -4,6 +4,7 @@ option go_package = "../gateway/compute_svc";
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
+import "common.proto";
 
 service ComputeProvider {
    rpc GetStatus(google.protobuf.Empty) returns (GetStatusReply) {
@@ -19,6 +20,13 @@ service ComputeProvider {
   }
 
   rpc UploadShard(stream UploadShardReq) returns (UploadShardReply) {}
+
+  rpc HandleTaskReadyGo(common.TaskReadyGoReq) returns (commonTaskReadyGoReply) {
+        option(google.api.http) = {
+        post: "/compute/handleTaskReadyGo"
+        body: "*"
+    };
+  }
 }
 
 message UploadShardReq {

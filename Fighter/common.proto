@@ -1,17 +1,6 @@
 syntax = "proto3";
-package taskrunsvc;
-option go_package = "../gateway/compute_svc";
+package common;
 
-import "google/api/annotations.proto";
-
-service TaskRunProvider {
-    rpc HandleTaskReadyGo(TaskReadyGoReq) returns (TaskReadyGoReply) {
-            option(google.api.http) = {
-            post: "/compute/handleTaskReadyGo"
-            body: "*"
-        };
-    }
-}
 
 message TaskReadyGoReq {
     string task_id = 1;
