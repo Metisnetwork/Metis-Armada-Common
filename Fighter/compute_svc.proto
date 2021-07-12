@@ -21,7 +21,7 @@ service ComputeProvider {
 
   rpc UploadShard(stream UploadShardReq) returns (UploadShardReply) {}
 
-  rpc HandleTaskReadyGo(common.TaskReadyGoReq) returns (commonTaskReadyGoReply) {
+  rpc HandleTaskReadyGo(common.TaskReadyGoReq) returns (common.TaskReadyGoReply) {
         option(google.api.http) = {
         post: "/compute/handleTaskReadyGo"
         body: "*"
