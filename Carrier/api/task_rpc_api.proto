@@ -153,6 +153,7 @@ message PublishTaskDeclareRequest {
     TaskOperationCostDeclare           operation_cost         = 6;                   //  任务所需资源声明
     string                             calculate_contractcode = 7;           //  计算合约
     string                             datasplit_contractcode = 8;           //  数据分片合约
+    string                             contract_extra_params  = 9;           //  合约调用的额外可变入参 (json 字符串, 根据算法来)
 }
 
 message PublishTaskDeclareResponse {
