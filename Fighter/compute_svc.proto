@@ -27,6 +27,13 @@ service ComputeProvider {
         body: "*"
     };
   }
+
+  rpc HandleCancelTask(common.TaskCancelReq) returns (common.TaskCancelReply) {
+        option(google.api.http) = {
+        post: "/compute/handleCancelTask"
+        body: "*"
+    };
+  }
 }
 
 message UploadShardReq {
