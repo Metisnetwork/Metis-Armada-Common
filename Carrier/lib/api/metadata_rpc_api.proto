@@ -69,7 +69,7 @@ message RevokeMetadataRequest {
 
 // 查询某 metadata 参与过的任务的taskId列表 req
 message GetMetadataUsedTaskIdListRequest {
-  string      identity_id = 1;            // 组织身份标识
+  string      identity_id = 1;            // 组织的身份标识 (可选, 传""则查询当前组织的元数据)
   string      metadata_id = 2;            // 元数据id
 }
 
