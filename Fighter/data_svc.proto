@@ -114,24 +114,18 @@ message GetDataDetailReply {
 }
 
 message GetStatusReply {
-  string node_type = 1;
-  string node_id = 2;
-  string state = 3;
-  message Info {
-    string total_cpu = 1;
-    string used_cpu = 2;
-    string idle_cpu = 3;
-    string total_memory = 4;
-    string used_memory = 5;
-    string idle_memory = 6;
-    string total_disk = 7;
-    string used_disk = 8;
-    string idle_disk = 9;
-    string total_bandwidth = 10;
-    string used_bandwidth = 11;
-    string idle_bandwidth = 12;
-  }
-  Info info = 4;
+  uint32 total_cpu = 1;
+  uint32 used_cpu = 2;
+  uint32 idle_cpu = 3;
+  uint64 total_memory = 4;
+  uint64 used_memory = 5;
+  uint64 idle_memory = 6;
+  uint64 total_disk = 7;
+  uint64 used_disk = 8;
+  uint64 idle_disk = 9;
+  uint64 total_bandwidth = 10;
+  uint64 used_bandwidth = 11;
+  uint64 idle_bandwidth = 12;
 }
 
 message SendSharesDataRequest {
