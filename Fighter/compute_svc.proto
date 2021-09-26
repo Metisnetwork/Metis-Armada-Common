@@ -54,8 +54,9 @@ message UploadShardReply {
 
 message GetStatusReply {
   string cpu = 1;
-  string mem = 2;
-  string bandwidth = 3;
+  string memory = 2;
+  string disk = 3;
+  string bandwidth = 4;
 }
 
 message GetTaskDetailsReq {
