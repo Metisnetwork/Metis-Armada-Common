@@ -118,11 +118,18 @@ message GetStatusReply {
   string node_id = 2;
   string state = 3;
   message Info {
-    string name = 1;
-    string cpu = 2;
-    string memory = 3;
-    string disk = 4;
-    string bandwidth = 5;
+    string total_cpu = 1;
+    string used_cpu = 2;
+    string idle_cpu = 3;
+    string total_memory = 4;
+    string used_memory = 5;
+    string idle_memory = 6;
+    string total_disk = 7;
+    string used_disk = 8;
+    string idle_disk = 9;
+    string total_bandwidth = 10;
+    string used_bandwidth = 11;
+    string idle_bandwidth = 12;
   }
   Info info = 4;
 }
