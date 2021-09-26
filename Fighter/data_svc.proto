@@ -119,9 +119,10 @@ message GetStatusReply {
   string state = 3;
   message Info {
     string name = 1;
-    string total_disk = 2;
-    string used_disk = 3;
-    string idle_disk = 4;
+    string cpu = 2;
+    string memory = 3;
+    string disk = 4;
+    string bandwidth = 5;
   }
   Info info = 4;
 }
