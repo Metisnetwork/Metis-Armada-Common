@@ -32,7 +32,6 @@ message TaskResourceUsageMsg {
   bytes                         sign = 5 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskResourceUsageMsg 发起者签名
 }
 
-
 // 任务终止消息
 message TaskTerminateMsg {
   common.MsgOption              msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];     //
@@ -40,4 +39,3 @@ message TaskTerminateMsg {
   uint64                        create_at = 3 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskTerminateMsg 创建的时间戳 (单位: ms)
   bytes                         sign = 4 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskTerminateMsg 发起者签名
 }
-
