@@ -75,19 +75,20 @@ enum MetadataState {
   MetadataState_Revoked = 3;
 }
 
-// 元数据的使用方式类型枚举
+// 元数据的使用方式类型枚举 (0: 未定义; 1: 按照时间段来使用; 2: 按照次数来使用)
 enum MetadataUsageType {
   Usage_Unknown = 0;        // 未定义类型
   Usage_Period = 1;         // 依照时间段来使用
   Usage_Times = 2;          // 依照次数来使用
 }
 
-// 算力的状态 (0: 未知; 1: 还未发布的算力; 2: 已发布的算力; 3: 已撤销的算力)
+// 算力的状态 (0: 未知; 1: 还未发布的算力; 2: 已发布的算力(算力未被占用); 3: 已发布的算力(算力正在被占用); 4: 已撤销的算力)
 enum PowerState {
   PowerState_Unknown = 0;
   PowerState_Created = 1;
   PowerState_Released = 2;
-  PowerState_Revoked = 3;
+  PowerState_Occupation = 3;
+  PowerState_Revoked = 4;
 }
 
 // 本组织在task中的角色
