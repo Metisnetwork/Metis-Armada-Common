@@ -19,8 +19,9 @@ message TaskEvent {
   bytes  type = 1 [(gogoproto.moretags) = "ssz-max:\"32\""];                            // 事件类型码
   bytes  task_id = 2 [(gogoproto.moretags) = "ssz-max:\"128\""];                        // 事件对应的任务id
   bytes  identity_id = 3 [(gogoproto.moretags) = "ssz-max:\"1024\""];                   // 产生事件的节点身份
-  bytes  content = 4 [(gogoproto.moretags) = "ssz-max:\"2048\""];                       // 事件内容
-  uint64 create_at = 5 [(gogoproto.moretags) = "ssz-size:\"8\""];                       // 事件产生时间戳 (单位: ms)
+  bytes  party_id = 4 [(gogoproto.moretags) = "ssz-max:\"32\""];                        // 产生事件的节点在task中的partyId
+  bytes  content = 5 [(gogoproto.moretags) = "ssz-max:\"2048\""];                       // 事件内容
+  uint64 create_at = 6 [(gogoproto.moretags) = "ssz-size:\"8\""];                       // 事件产生时间戳 (单位: ms)
 }
 
 // 参与方 返回task的实时资源消耗
@@ -32,6 +33,7 @@ message TaskResourceUsageMsg {
   bytes                         sign = 5 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskResourceUsageMsg 发起者签名
 }
 
+
 // 任务终止消息
 message TaskTerminateMsg {
   common.MsgOption              msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];     //
@@ -39,3 +41,4 @@ message TaskTerminateMsg {
   uint64                        create_at = 3 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskTerminateMsg 创建的时间戳 (单位: ms)
   bytes                         sign = 4 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskTerminateMsg 发起者签名
 }
+
