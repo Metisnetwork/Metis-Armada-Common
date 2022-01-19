@@ -4,7 +4,7 @@ option go_package = "../gateway/compute_svc";
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
-import "common.proto";
+import "lib/common.proto";
 
 service ComputeProvider {
    rpc GetStatus(google.protobuf.Empty) returns (GetStatusReply) {
