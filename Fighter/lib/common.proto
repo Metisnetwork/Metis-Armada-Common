@@ -4,18 +4,22 @@ package common;
 
 message TaskReadyGoReq {
     string task_id = 1;
-    string contract_id = 2;       // 目前即算法本身
+    string algorithm_code = 2;       // 算法代码
     string data_id = 3;
     string party_id = 4;          // 当前参与方id
     string env_id = 5;
-    message Peer {                // 各参与方信息
+    message Party {                // 各参与方信息
         string ip = 1;
         int32 port = 2;
         string party_id = 3;      // 达成共识后为每个参与方分配的唯一标识
         string name = 4;          // 为了可读性
     }
-    repeated Peer peers = 6;
-    string contract_cfg = 7;      // 算法配置json
+    repeated Party parties = 6;
+    message TypedContent {        // 有类型的字段内容
+    	string type = 1;
+    	string content = 2;
+    }
+    TypedContent algorithm_cfg = 7;      // 算法配置, type='2D-table' 或 'non-2D-table'
     repeated string data_party = 8;         // 各数据方的party_id
     repeated string computation_party = 9;  // 各计算方的party_id
     repeated string result_party = 10;      // 各结果方的party_id
@@ -23,6 +27,7 @@ message TaskReadyGoReq {
     uint64 memory = 12;
     uint32 processor = 13;
     uint64 bandwidth = 14;
+    TypedContent connect_policy = 15; // channel的连接策略, type='str' 或 'json'
 }
 
 message TaskReadyGoReply {
