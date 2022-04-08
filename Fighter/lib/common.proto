@@ -10,13 +10,15 @@ message Party {                // 各参与方信息
 }
 
 enum AlgorithmCfgType {
-    AlgorithmCfgType_2DTable = 0;      // 二维数据表
-    AlgorithmCfgType_non2DTable = 1;   // 非二维数据表
+    AlgorithmCfgType_Unknown = 0;      // 未知
+    AlgorithmCfgType_2DTable = 1;      // 二维数据表
+    AlgorithmCfgType_non2DTable = 2;   // 非二维数据表
 }
 
 enum ConnectPolicyFormat {
-    ConnectPolicyFormat_Str = 0;           // 字符串
-    ConnectPolicyFormat_Json = 1;          // json
+    ConnectPolicyFormat_Unknown = 0;       // 未知
+    ConnectPolicyFormat_Str = 1;           // 字符串
+    ConnectPolicyFormat_Json = 2;          // json
 }
 
 message TaskReadyGoReq {
@@ -28,9 +30,9 @@ message TaskReadyGoReq {
     string algorithm_code = 6;           // 算法代码
     AlgorithmCfgType algorithm_cfg_type = 7;  // 算法配置的类型
     string algorithm_cfg = 8;            // 算法配置json
-    repeated string data_party = 9;         // 各数据方的party_id
-    repeated string computation_party = 10;  // 各计算方的party_id
-    repeated string result_party = 11;      // 各结果方的party_id
+    repeated string data_party_ids = 9;         // 各数据方的party_id
+    repeated string computation_party_ids = 10;  // 各计算方的party_id
+    repeated string result_party_ids = 11;      // 各结果方的party_id
     uint64 duration = 12;       // 任务预算计算时长(单位: ms)
     uint64 memory = 13;         // 内存限制(单位: byte)
     uint32 processor = 14;      // 处理器限制(单位：个)
