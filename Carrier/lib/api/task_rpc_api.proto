@@ -134,6 +134,24 @@ message TerminateTaskRequest {
   bytes                 sign = 12;                            //  发起任务的账户的签名
 }
 
+
+message DataTokenTransferItem {
+  string address = 1;       //data token合约地址
+  uint64 amount = 2;        //data token转账金额
+}
+
+// 预估gas request
+message EstimateTaskGasRequest {
+  repeated DataTokenTransferItem      data_token_transfer_items = 1;       // 当前任务用到的data token 合约地址和转账金额列表
+}
+
+// 预估gas response
+message EstimateTaskGasResponse {
+  int32  status = 1;
+  string msg = 2;
+  uint64 gas_limit = 3;       // 需要消耗的gas数量
+}
+
 // ## 任务 相关接口
 service TaskService {
 
@@ -190,6 +208,13 @@ service TaskService {
     };
   }
 
+  // v 0.4.0 预估gas
+  rpc EstimateTaskGas (EstimateTaskGasRequest) returns (EstimateTaskGasResponse) {
+    option (google.api.http) = {
+      post: "/carrier/v1/task/estimateTaskGas"
+      body: "*"
+    };
+  }
 }
 
 
