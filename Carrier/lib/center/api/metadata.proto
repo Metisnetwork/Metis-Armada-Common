@@ -81,7 +81,7 @@ message FindMetadataByIdResponse {
 }
 
 message FindMetadataByIdsRequest {
-  repeated string metadata_id = 1;
+  repeated string metadata_ids = 1;
 }
 
 service MetadataService {
