@@ -48,3 +48,11 @@ message TaskCancelReply {
     int32 status = 1;
     string msg = 2;
 }
+
+
+enum ServiceType {
+  DATA_SVC = 0;
+  COMPUTE_SVC = 1;
+  SCHEDULE_SVC = 2;
+  NET_COMM_SVC = 3;
+}
