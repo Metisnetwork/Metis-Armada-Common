@@ -2,10 +2,9 @@ syntax = "proto3";
 
 package types;
 
-import "lib/types/base.proto";
-//import "repos/protobuf/gogoproto/gogo.proto";
+option go_package = "./pb/carrier/types";
 
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/types";
+import "lib/types/base.proto";
 
 // IdentityData represents the stored data structure.
 message IdentityPB {

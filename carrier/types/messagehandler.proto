@@ -2,12 +2,11 @@ syntax = "proto3";
 
 package types;
 
-import "lib/types/base.proto";
-import "lib/types/metadata.proto";
-import "lib/types/taskdata.proto";
+option go_package = "./pb/carrier/types";
 
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/types";
-
+import "types/base.proto";
+import "types/metadata.proto";
+import "types/taskdata.proto";
 
 message PowerMsg {
   /**

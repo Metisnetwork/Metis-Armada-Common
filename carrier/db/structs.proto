@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package db;
 
-import "lib/types/taskdata.proto";
+option go_package = "./pb/carrier/db";
 
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/db";
+import "lib/types/taskdata.proto";
 
 message SeedPeerPB {
     string addr           = 1;

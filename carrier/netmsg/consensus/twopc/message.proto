@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package twopc;
 
-import "repos/protobuf/gogoproto/gogo.proto";
-import "lib/netmsg/common/message.proto";
+option go_package = "./pb/carrier/netmsg/consensus/twopc";
 
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/netmsg/consensus/twopc";
+import "repos/protobuf/gogoproto/gogo.proto";
+import "netmsg/common/message.proto";
 
 
 // 2pc prepare 阶段信息

@@ -2,11 +2,10 @@ syntax = "proto3";
 
 package api;
 
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/center/api";
+option go_package = "./pb/datacenter/api";
 
-import "lib/types/base.proto";
-import "lib/types/metadata.proto";
-//import "google/protobuf/empty.proto";
+import "../carrier/types/base.proto";
+import "../carrier/types/metadata.proto";
 
 
 message SaveMetadataRequest {

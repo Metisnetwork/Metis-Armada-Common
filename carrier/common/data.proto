@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package api.protobuf;
 
-option go_package = "github.com/RosettaFlow/Carrier-Go/lib/common";
+option go_package = "./pb/carrier/common";
 
 // 任务需要花费的资源声明
 message TaskResourceCostDeclare {

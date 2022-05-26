@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package common;
 
-import "repos/protobuf/gogoproto/gogo.proto";
+option go_package = "./pb/carrier/netmsg/common";
 
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/netmsg/common";
+import "repos/protobuf/gogoproto/gogo.proto";
 
 // 消息选项
 message MsgOption {

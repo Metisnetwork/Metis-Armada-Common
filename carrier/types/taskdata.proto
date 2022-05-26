@@ -2,11 +2,10 @@ syntax = "proto3";
 
 package types;
 
-import "lib/types/base.proto";
-import "lib/types/resourcedata.proto";
+option go_package = "./pb/carrier/types";
 
-
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/types";
+import "types/base.proto";
+import "types/resourcedata.proto";
 
 message TaskPB {
   string                                      task_id = 1;                                // 任务Id

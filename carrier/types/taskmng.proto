@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package types;
 
-import "lib/types/base.proto";
-import "lib/types/consensusstate.proto";
-import "lib/netmsg/consensus/twopc/message.proto";
+option go_package = "./pb/carrier/types";
 
-option go_package = "github.com/Metisnetwork/Metis-Carrier/lib/types";
+import "types/base.proto";
+import "types/consensusstate.proto";
+import "netmsg/consensus/twopc/message.proto";
 
 message NeedExecuteTask {
   string                              remote_pid = 1;
