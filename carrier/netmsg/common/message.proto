@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package common;
+option go_package = "pb/carrier/netmsg/common";
 
-option go_package = "./pb/carrier/netmsg/common";
+package carrier.netmsg.common;
 
 import "repos/protobuf/gogoproto/gogo.proto";
 

@@ -1,6 +1,8 @@
 syntax = "proto3";
-package common;
 
+option go_package = "pb/fighter/common";
+
+package fighter.common;
 
 message Party {                // 各参与方信息
     string ip = 1;

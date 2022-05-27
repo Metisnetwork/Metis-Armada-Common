@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package db;
+option go_package = "pb/carrier/db";
 
-option go_package = "./pb/carrier/db";
+package carrier.db;
 
 import "lib/types/taskdata.proto";
 

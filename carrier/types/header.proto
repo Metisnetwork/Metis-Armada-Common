@@ -1,10 +1,8 @@
 syntax = "proto3";
 
-package types;
+option go_package = "pb/carrier/types";
 
-//import "repos/protobuf/gogoproto/gogo.proto";
-
-option go_package = "./pb/carrier/types";
+package carrier.types;
 
 message HeaderPb {
   bytes  parent_hash = 1;

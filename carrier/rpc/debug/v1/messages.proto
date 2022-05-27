@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package carrier.rpc.v1;
+option go_package = "pb/carrier/rpc/debug/v1";
 
-option go_package = "./pb/carrier/rpc/debug/v1";
+package carrier.rpc.debug.v1;
 
 import "repos/protobuf/gogoproto/gogo.proto";
 

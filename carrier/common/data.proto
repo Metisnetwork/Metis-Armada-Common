@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package api.protobuf;
+option go_package = "pb/carrier/common";
 
-option go_package = "./pb/carrier/common";
+package carrier.common;
 
 // 任务需要花费的资源声明
 message TaskResourceCostDeclare {

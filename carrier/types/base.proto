@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package types;
+option go_package = "pb/carrier/types";
 
-option go_package = "./pb/carrier/types";
+package carrier.types;
 
 // A represents the basic information of the organization.
 message Organization  {

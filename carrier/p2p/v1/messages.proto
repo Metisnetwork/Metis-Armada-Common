@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package carrier.p2p.v1;
+option go_package = "pb/carrier/p2p/v1";
 
-option go_package = "./pb/carrier/p2p/v1";
+package carrier.p2p.v1;
 
 import "repos/protobuf/gogoproto/gogo.proto";
 

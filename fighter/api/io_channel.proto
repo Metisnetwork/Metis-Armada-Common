@@ -1,6 +1,12 @@
 syntax = "proto3";
-package io_channel;
+
+option go_package = "pb/fighter/api";
+
 option cc_enable_arenas = true;
+
+package fighter.api;
+
+
 
 service IoChannel {
     rpc Send(SendRequest) returns (RetCode) {}         // 发送消息
