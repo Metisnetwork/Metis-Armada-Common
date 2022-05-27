@@ -4,7 +4,7 @@ option go_package = "pb/carrier/db";
 
 package carrier.db;
 
-import "lib/types/taskdata.proto";
+import "types/taskdata.proto";
 
 message SeedPeerPB {
     string addr           = 1;
