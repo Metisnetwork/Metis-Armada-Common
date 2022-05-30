@@ -26,7 +26,7 @@ message OrgProposalState{
   TaskOrganization                        task_org = 5;
   uint32                                  period_num = 6;
   string                                  task_id = 7;
-  common.constant.TaskOrganization        task_sender = 8;
+  TaskOrganization                        task_sender = 8;
 }
 
 message PrepareVoteResource{
