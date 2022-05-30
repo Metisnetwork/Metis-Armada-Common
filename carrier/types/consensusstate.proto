@@ -4,7 +4,7 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "types/base.proto";
+import "carrier/types/base.proto";
 
 message ProposalTask {
   /**

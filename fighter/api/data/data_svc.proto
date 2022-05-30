@@ -2,12 +2,12 @@ syntax = "proto3";
 
 option go_package = "pb/fighter/api";
 
-package fighter.api;
+package fighter.api.data;
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
-import "lib/common.proto";
-import "lib/types/base.proto";
+import "fighter/common/base.proto";
+import "carrier/types/base.proto";
 
 
 service DataProvider {
@@ -43,14 +43,14 @@ service DataProvider {
 
   rpc SendSharesData(SendSharesDataRequest) returns (SendSharesDataReply) {}
 
-  rpc HandleTaskReadyGo(common.TaskReadyGoReq) returns (common.TaskReadyGoReply) {
+  rpc HandleTaskReadyGo(fighter.common.TaskReadyGoReq) returns (fighter.common.TaskReadyGoReply) {
         option(google.api.http) = {
         post: "/data/handleTaskReadyGo"
         body: "*"
     };
   }
 
-  rpc HandleCancelTask(common.TaskCancelReq) returns (common.TaskCancelReply) {
+  rpc HandleCancelTask(fighter.common.TaskCancelReq) returns (fighter.common.TaskCancelReply) {
         option(google.api.http) = {
         post: "/data/handleCancelTask"
         body: "*"
@@ -80,7 +80,7 @@ message DownloadReply {
 message UploadRequest {
   string data_name = 1;
   bytes content = 2;
-  types.OrigindataType data_type = 3;
+  carrier.types.OrigindataType data_type = 3;
   string description = 4;
   repeated string columns = 5;
   repeated string col_dtypes = 6;

@@ -4,13 +4,13 @@ option go_package = "pb/datacenter/api";
 
 package datacenter.api;
 
-import "../carrier/types/base.proto";
-import "../carrier/types/resourcedata.proto";
+import "carrier/types/base.proto";
+import "carrier/types/resourcedata.proto";
 import "google/protobuf/empty.proto";
 
 // 发布算力请求参数
 message PublishPowerRequest {
-  types.ResourcePB power = 1;
+  carrier.types.ResourcePB power = 1;
 }
 
 message PublishPowerResponse {
@@ -22,7 +22,7 @@ message PublishPowerResponse {
 
 message RevokePowerRequest {
   // 算力的拥有者
-  types.Organization owner = 1;
+  carrier.types.Organization owner = 1;
   // 算力id
   string power_id = 2;
 }
@@ -30,16 +30,16 @@ message RevokePowerRequest {
 //  总算力摘要
 message PowerSummary {
   // 算力实况
-  types.ResourceUsageOverview information = 1;
+  carrier.types.ResourceUsageOverview information = 1;
   // 算力上总共执行的任务数 (已完成的和正在执行的)
   uint32 total_task_count = 2;
   // 算力状态 (create: 还未发布的算力; release: 已发布的算力; revoke: 已撤销的算力)
-  types.PowerState state = 3;
+  carrier.types.PowerState state = 3;
 }
 
 message PowerSummaryResponse {
   // 算力拥有者信息
-  types.Organization owner = 1;
+  carrier.types.Organization owner = 1;
   // 算力总摘要
   PowerSummary power_summary = 2;
 }
@@ -60,24 +60,24 @@ message ListPowerRequest {
 }
 
 message ListPowerResponse {
-  repeated types.ResourcePB powers  = 1;
+  repeated carrier.types.ResourcePB powers  = 1;
 }
 
 message SyncPowerRequest {
-  types.LocalResourcePB power = 1;
+  carrier.types.LocalResourcePB power = 1;
 }
 
 // 资源（算力）接口定义
 service ResourceService {
 
   // 存储资源
-  rpc PublishPower (PublishPowerRequest) returns (types.SimpleResponse);
+  rpc PublishPower (PublishPowerRequest) returns (carrier.types.SimpleResponse);
 
   // 新增，算力同步，实时通知算力的使用情况（组织下的具体的服务器）
-  rpc SyncPower(SyncPowerRequest) returns(types.SimpleResponse);
+  rpc SyncPower(SyncPowerRequest) returns(carrier.types.SimpleResponse);
 
   // 撤销资源
-  rpc RevokePower (RevokePowerRequest) returns (types.SimpleResponse);
+  rpc RevokePower (RevokePowerRequest) returns (carrier.types.SimpleResponse);
 
   // 新增，用于同步给管理台，获取所有算力资源信息
   rpc ListPower(ListPowerRequest) returns (ListPowerResponse);

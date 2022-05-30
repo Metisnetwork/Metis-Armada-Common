@@ -2,11 +2,11 @@ syntax = "proto3";
 
 option go_package = "pb/fighter/api";
 
-package fighter.api;
+package fighter.api.compute;
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
-import "lib/common.proto";
+import "fighter/common/base.proto";
 
 service ComputeProvider {
    rpc GetStatus(google.protobuf.Empty) returns (GetStatusReply) {
@@ -23,14 +23,14 @@ service ComputeProvider {
 
   rpc UploadShard(stream UploadShardReq) returns (UploadShardReply) {}
 
-  rpc HandleTaskReadyGo(common.TaskReadyGoReq) returns (common.TaskReadyGoReply) {
+  rpc HandleTaskReadyGo(fighter.common.TaskReadyGoReq) returns (fighter.common.TaskReadyGoReply) {
         option(google.api.http) = {
         post: "/compute/handleTaskReadyGo"
         body: "*"
     };
   }
 
-  rpc HandleCancelTask(common.TaskCancelReq) returns (common.TaskCancelReply) {
+  rpc HandleCancelTask(fighter.common.TaskCancelReq) returns (fighter.common.TaskCancelReply) {
         option(google.api.http) = {
         post: "/compute/handleCancelTask"
         body: "*"

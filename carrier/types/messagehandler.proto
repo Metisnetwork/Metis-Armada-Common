@@ -4,9 +4,9 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "types/base.proto";
-import "types/metadata.proto";
-import "types/taskdata.proto";
+import "carrier/types/base.proto";
+import "carrier/types/metadata.proto";
+import "carrier/types/taskdata.proto";
 
 message PowerMsg {
   /**

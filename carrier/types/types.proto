@@ -4,11 +4,11 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "types/header.proto";
-import "types/metadata.proto";
-import "types/resourcedata.proto";
-import "types/taskdata.proto";
-import "types/identitydata.proto";
+import "carrier/types/header.proto";
+import "carrier/types/metadata.proto";
+import "carrier/types/resourcedata.proto";
+import "carrier/types/taskdata.proto";
+import "carrier/types/identitydata.proto";
 
 // Metadata body data struct.
 message BlockData {

@@ -6,8 +6,8 @@ package carrier.rpc.debug.v1;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
-import "p2p/v1/messages.proto";
-import "types/consensusstate.proto";
+import "carrier/p2p/v1/messages.proto";
+import "carrier/types/consensusstate.proto";
 
 // Debug service API
 service Debug {
