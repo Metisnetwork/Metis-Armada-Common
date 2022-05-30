@@ -7,7 +7,6 @@ package carrier.rpc.debug.v1;
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "carrier/p2p/v1/messages.proto";
-import "carrier/types/consensusstate.proto";
 import "carrier/netmsg/consensus/twopc/message.proto";
 
 // Debug service API
