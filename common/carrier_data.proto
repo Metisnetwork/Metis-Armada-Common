@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "pb/carrier/common";
+option go_package = "pb/common";
 
-package carrier.common;
+package common;
 
 // 任务需要花费的资源声明
 message TaskResourceCostDeclare {

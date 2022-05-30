@@ -4,7 +4,7 @@ option go_package = "pb/datacenter/api";
 
 package datacenter.api;
 
-import "carrier/types/base.proto";
+import "common/carrier_base.proto";
 import "carrier/types/identitydata.proto";
 import "carrier/types/metadata.proto";
 

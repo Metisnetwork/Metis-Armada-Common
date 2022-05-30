@@ -6,8 +6,8 @@ package fighter.api.data;
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
-import "fighter/common/base.proto";
-import "carrier/types/base.proto";
+import "common/fighter_base.proto";
+import "common/carrier_base.proto";
 
 
 service DataProvider {
@@ -63,16 +63,11 @@ message DownloadRequest {
   map<string, string> options = 2;  // e.g.: compress: zip|tar.gz, data_root_dir: data|result
 }
 
-enum TaskStatus {
-  Start = 0;
-  Finished = 1;
-  Cancelled = 2;
-  Failed = 3;
-}
+
 
 message DownloadReply {
   oneof data {
-    TaskStatus status = 1;
+    common.TaskStatus status = 1;
     bytes content = 2;
   }
 }
@@ -80,7 +75,7 @@ message DownloadReply {
 message UploadRequest {
   string data_name = 1;
   bytes content = 2;
-  carrier.types.OrigindataType data_type = 3;
+  common.OrigindataType data_type = 3;
   string description = 4;
   repeated string columns = 5;
   repeated string col_dtypes = 6;
@@ -141,5 +136,5 @@ message SendSharesDataRequest {
 }
 
 message SendSharesDataReply {
-  TaskStatus status = 1;
+  common.TaskStatus status = 1;
 }

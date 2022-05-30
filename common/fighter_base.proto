@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "pb/fighter/common";
+option go_package = "pb/common";
 
-package fighter.common;
+package common;
 
 message Party {                // 各参与方信息
     string ip = 1;
@@ -57,4 +57,12 @@ enum ServiceType {
   COMPUTE_SVC = 1;
   SCHEDULE_SVC = 2;
   NET_COMM_SVC = 3;
+}
+
+
+enum TaskStatus {
+    Start = 0;
+    Finished = 1;
+    Cancelled = 2;
+    Failed = 3;
 }

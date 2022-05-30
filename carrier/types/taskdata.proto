@@ -4,7 +4,7 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "carrier/types/base.proto";
+import "common/carrier_base.proto";
 import "carrier/types/resourcedata.proto";
 
 message TaskPB {
