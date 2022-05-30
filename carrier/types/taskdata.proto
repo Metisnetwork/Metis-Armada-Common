@@ -4,8 +4,8 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "types/base.proto";
-import "types/resourcedata.proto";
+import "carrier/types/base.proto";
+import "carrier/types/resourcedata.proto";
 
 message TaskPB {
   string                                      task_id = 1;                                // 任务Id

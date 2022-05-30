@@ -4,8 +4,8 @@ option go_package = "pb/carrier/api";
 
 package carrier.api;
 
-import "types/base.proto";
-import "types/resourcedata.proto";
+import "carrier/types/base.proto";
+import "carrier/types/resourcedata.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 

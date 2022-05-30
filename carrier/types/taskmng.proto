@@ -4,9 +4,9 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "types/base.proto";
-import "types/consensusstate.proto";
-import "netmsg/consensus/twopc/message.proto";
+import "carrier/types/base.proto";
+import "carrier/types/consensusstate.proto";
+import "carrier/netmsg/consensus/twopc/message.proto";
 
 message NeedExecuteTask {
   string                              remote_pid = 1;
@@ -17,7 +17,7 @@ message NeedExecuteTask {
   string                              task_id = 6;
   bytes                               consStatus = 7;
   PrepareVoteResource                 local_resource = 8;
-  twopc.ConfirmTaskPeerInfo           resources = 9;
+  carrier.netmsg.consensus.twopc.ConfirmTaskPeerInfo                 resources = 9;
   string                              err_str = 10;
   string                              consume_query_id = 11;
   string                              consume_spec = 12;
