@@ -207,11 +207,11 @@ message Get2pcProposalStateResponse{
 }
 message Get2pcProposalPrepareResponse{
   map<string,types.PrepareVote>         votes = 1;
-  map<string,uint32>            yesVotes = 2;
-  map<string,uint32>            voteStatus = 3;
+  map<string,uint32>                    yesVotes = 2;
+  map<string,uint32>                    voteStatus = 3;
 }
 message Get2pcProposalConfirmResponse{
   map<string,types.ConfirmVote>         votes = 1;
-  map<string,uint32>            yesVotes = 2;
-  map<string,uint32>            voteStatus = 3;
+  map<string,uint32>                    yesVotes = 2;
+  map<string,uint32>                    voteStatus = 3;
 }

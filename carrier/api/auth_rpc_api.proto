@@ -4,7 +4,9 @@ option go_package = "pb/carrier/api";
 
 package carrier.api;
 
-import "common/carrier_base.proto";
+import "common/carrier_enum.proto";
+import "carrier/types/common.proto";
+import "carrier/types/identitydata.proto";
 import "carrier/types/metadata.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
@@ -31,15 +33,15 @@ message GetIdentityListRequest {
 message GetIdentityListResponse {
   int32                              status = 1;                       // 响应码
   string                             msg = 2;                          // 错误信息
-  repeated types.Organization        identitys = 3;                    // 全网身份信息列表
+  repeated types.Organization         identitys = 3;                    // 全网身份信息列表
 }
 
 // 发起用户对元数据使用授权申请 req
 message ApplyMetadataAuthorityRequest {
-  string                  user = 1;                            // 发起任务的用户的信息 (授权申请, 是属于用户的)
-  types.UserType          user_type = 2;                       // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
-  types.MetadataAuthority auth = 3;                            // 元数据使用授权信息
-  bytes                   sign = 4;                            // 发起数据授权申请的账户的签名
+  string                    user = 1;                            // 发起任务的用户的信息 (授权申请, 是属于用户的)
+  common.UserType           user_type = 2;                       // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
+  types.MetadataAuthority   auth = 3;                            // 元数据使用授权信息
+  bytes                     sign = 4;                            // 发起数据授权申请的账户的签名
 }
 // 发起用户对元数据使用授权申请 resp
 message ApplyMetadataAuthorityResponse {
@@ -50,23 +52,23 @@ message ApplyMetadataAuthorityResponse {
 
 // 撤销用户对元数据使用授权申请 req
 message RevokeMetadataAuthorityRequest {
-  string                  user = 1;                             // 发起任务的用户的信息 (授权申请, 是属于用户的)
-  types.UserType          user_type = 2;                        // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
-  string                  metadata_auth_id = 3;                 // 元数据授权申请Id
-  bytes                   sign = 4;                             //  撤销数据授权申请的账户的签名
+  string                    user = 1;                             // 发起任务的用户的信息 (授权申请, 是属于用户的)
+  common.UserType           user_type = 2;                        // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
+  string                    metadata_auth_id = 3;                 // 元数据授权申请Id
+  bytes                     sign = 4;                             //  撤销数据授权申请的账户的签名
 }
 
 // 组织对用户的数据授权申请做审核 req
 message AuditMetadataAuthorityRequest {
-  string                            metadata_auth_id = 1;                   // 元数据授权申请Id
-  types.AuditMetadataOption         audit = 2;                              // 审核结果
-  string                            suggestion = 3;                         // 审核意见 (允许""字符)
+  string                              metadata_auth_id = 1;                   // 元数据授权申请Id
+  common.AuditMetadataOption          audit = 2;                              // 审核结果
+  string                              suggestion = 3;                         // 审核意见 (允许""字符)
 }
 // 组织对用户的数据授权申请做审核 resp
 message AuditMetadataAuthorityResponse {
-  int32                            status = 1;                       // 响应码
-  string                           msg = 2;                          // 错误信息
-  types.AuditMetadataOption        audit = 3;                        // 审核结果 (回显)
+  int32                               status = 1;                       // 响应码
+  string                              msg = 2;                          // 错误信息
+  common.AuditMetadataOption          audit = 3;                        // 审核结果 (回显)
 }
 
 //// 查看某个组织的所有元数据的授权申请及审核结果详情列表 req
@@ -81,9 +83,9 @@ message GetMetadataAuthorityListRequest {
 
 // 当前(组织or用户)的所有元数据的授权申请及审核结果详情列表 resp
 message GetMetadataAuthorityListResponse {
-  int32                                       status = 1;                       // 响应码
-  string                                      msg = 2;                          // 错误信息
-  repeated types.MetadataAuthorityDetail      metadata_auths = 3;               // 数据授权信息列表
+  int32                                         status = 1;                       // 响应码
+  string                                        msg = 2;                          // 错误信息
+  repeated types.MetadataAuthorityDetail        metadata_auths = 3;               // 数据授权信息列表
 }
 
 

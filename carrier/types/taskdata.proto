@@ -4,15 +4,15 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "common/carrier_base.proto";
+import "common/carrier_enum.proto";
 import "carrier/types/resourcedata.proto";
 
 message TaskPB {
   string                                      task_id = 1;                                // 任务Id
   string                                      data_id = 2;                                // 预留
-  DataStatus                                  data_status = 3;                            // the status of data for local storage, 1 means valid, 2 means invalid.
+  common.DataStatus                           data_status = 3;                            // the status of data for local storage, 1 means valid, 2 means invalid.
   string                                      user = 4;                                   // 发起任务的用户的信息 (task是属于用户的)
-  UserType                                    user_type = 5;                              // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
+  common.UserType                             user_type = 5;                              // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
   string                                      task_name = 6;                              // 任务名称
   TaskOrganization                            sender = 7;                                 // 任务的发起方的组织信息
   TaskOrganization                            algo_supplier = 8;                          // 任务的算法提供者信息
@@ -32,7 +32,7 @@ message TaskPB {
   string                                      meta_algorithm_id = 22;                     // 算法元数据Id (为了后续支持 算法市场而用, 使用内置算法时则该值为 "" 空字符串)
   string                                      algorithm_code_extra_params = 23;           // 内置算法的额外超参 (使用内置算法, 内置算法的额外超参数 json 字符串, 内容可为""空字符串, 根据算法来)
   repeated TaskPowerResourceOption            power_resource_options = 24;                // 算力的资源消耗明细
-  TaskState                                   state = 25;                                 // 任务的状态 (0: 未知; 1: 等在中; 2: 计算中; 3: 失败; 4: 成功)
+  common.TaskState                            state = 25;                                 // 任务的状态 (0: 未知; 1: 等在中; 2: 计算中; 3: 失败; 4: 成功)
   string                                      reason = 26;                                // 任务失败原因
   string                                      desc = 27;                                  // 任务描述(非必须)
   uint64                                      create_at = 28;                             // 任务的发起时间戳 (单位: ms)
@@ -69,7 +69,7 @@ message TaskDetailSummary {
   string                                    task_id = 1;                          // 任务Id
   string                                    task_name = 2;                        // 任务名称
   string                                    user = 3;                             // 发起任务的用户的信息 (task是属于用户的)
-  UserType                                  user_type = 4;                        // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
+  common.UserType                           user_type = 4;                        // 用户类型 (0: 未定义; 1: 第二地址; 2: 测试网地址; 3: 主网地址)
   TaskOrganization                          sender = 5;                           // 任务的发起方的组织信息
   TaskOrganization                          algo_supplier = 6;                    // 任务的算法提供者信息
   repeated TaskOrganization                 data_suppliers = 7;                   // 任务的数据提供方组信息 (可包含发起方和参与方)
@@ -88,7 +88,7 @@ message TaskDetailSummary {
   string                                    meta_algorithm_id = 20;               // 算法元数据Id (为了后续支持 算法市场而用, 使用内置算法时则该值为 "" 空字符串)
   string                                    algorithm_code_extra_params = 21;     // 内置算法的额外超参 (使用内置算法, 内置算法的额外超参数 json 字符串, 内容可为""空字符串, 根据算法来)
   repeated TaskPowerResourceOption          power_resource_options = 22;          // 算力的资源消耗明细
-  TaskState                                 state = 23;                           // 任务的状态 (0: 未知; 1: 等在中; 2: 计算中; 3: 失败; 4: 成功)
+  common.TaskState                          state = 23;                           // 任务的状态 (0: 未知; 1: 等在中; 2: 计算中; 3: 失败; 4: 成功)
   string                                    reason = 24;                          // 任务失败原因
   string                                    desc = 25;                            // 任务描述(非必须)
   uint64                                    create_at = 26;                       // 任务的发起时间戳 (单位: ms)
@@ -102,4 +102,29 @@ message TaskDetailSummary {
 // 查看本组织参与过的全部任务详情列表
 message TaskDetail {
   TaskDetailSummary                     information = 1;                  // 任务(展示)详情
+}
+
+
+
+// 任务下的组织信息
+message TaskOrganization  {
+  string party_id = 1;
+  // org name
+  string node_name = 2;
+  // the node_id for org
+  string node_id = 3;
+  // the identity for org
+  string identity_id = 4;
+}
+
+// 任务需要花费的资源声明
+message TaskResourceCostDeclare {
+  // 任务所需的内存 (单位: byte)
+  uint64 memory = 1;
+  // 任务所需的核数 (单位: 个)
+  uint32 processor = 2;
+  // 任务所需的带宽 (单位: bps)
+  uint64 bandwidth = 3;
+  // 任务所需的运行时长 (单位: ms)
+  uint64 duration = 4;
 }

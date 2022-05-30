@@ -4,7 +4,9 @@ option go_package = "pb/carrier/api";
 
 package carrier.api;
 
-import "common/carrier_base.proto";
+import "common/carrier_enum.proto";
+import "carrier/types/common.proto";
+import "carrier/types/identitydata.proto";
 import "carrier/types/resourcedata.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
@@ -26,9 +28,9 @@ message GetGlobalPowerSummaryListResponse {
 
 // 单个组织的各个算力信息
 message GetGlobalPowerDetail {
-  types.Organization        owner = 1;                  // 算力拥有者信息
-  types.PowerUsageDetail    information = 2;            // 算力总详细
-  string                    power_id = 3;               // 算力id
+  types.Organization          owner = 1;                  // 算力拥有者信息
+  types.PowerUsageDetail      information = 2;            // 算力总详细
+  string                      power_id = 3;               // 算力id
 }
 
 message GetGlobalPowerDetailListRequest {
@@ -45,10 +47,10 @@ message GetGlobalPowerDetailListResponse {
 
 // 本组织的单个(宿主机)算力信息 (包含【未发布】和【已发布】的) resp
 message GetLocalPowerDetail {
-  types.Organization        owner = 1;                  // 算力拥有者信息
-  types.PowerUsageDetail    power = 2;                  // 算力单个摘要
-  string                    job_node_id = 3;            // 计算服务id (单个宿主机的id)
-  string                    power_id = 4;               // 算力id (对于未发布的算力, powerId为"")
+  types.Organization          owner = 1;                  // 算力拥有者信息
+  types.PowerUsageDetail      power = 2;                  // 算力单个摘要
+  string                      job_node_id = 3;            // 计算服务id (单个宿主机的id)
+  string                      power_id = 4;               // 算力id (对于未发布的算力, powerId为"")
 }
 
 message GetLocalPowerDetailListRequest {

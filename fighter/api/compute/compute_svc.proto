@@ -6,6 +6,7 @@ package fighter.api.compute;
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
+import "figjter/types/types.proto";
 
 service ComputeProvider {
    rpc GetStatus(google.protobuf.Empty) returns (GetStatusReply) {
@@ -22,14 +23,14 @@ service ComputeProvider {
 
   rpc UploadShard(stream UploadShardReq) returns (UploadShardReply) {}
 
-  rpc HandleTaskReadyGo(fighter.common.TaskReadyGoReq) returns (fighter.common.TaskReadyGoReply) {
+  rpc HandleTaskReadyGo(fighter.types.TaskReadyGoReq) returns (fighter.types.TaskReadyGoReply) {
         option(google.api.http) = {
         post: "/compute/handleTaskReadyGo"
         body: "*"
     };
   }
 
-  rpc HandleCancelTask(fighter.common.TaskCancelReq) returns (fighter.common.TaskCancelReply) {
+  rpc HandleCancelTask(fighter.types.TaskCancelReq) returns (fighter.types.TaskCancelReply) {
         option(google.api.http) = {
         post: "/compute/handleCancelTask"
         body: "*"
