@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "pb/carrier/p2p/v1";
+//option go_package = "pb/carrier/p2p/v1";
 
 package carrier.p2p.v1;
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "pb/datacenter/api";
+//option go_package = "pb/datacenter/api";
 
 package datacenter.api;
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "pb/common/constant";
+//option go_package = "pb/common/constant";
 
 package common.constant;
 
