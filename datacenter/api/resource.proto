@@ -4,6 +4,7 @@ option go_package = "pb/datacenter/api";
 
 package datacenter.api;
 
+import "common/constant/carrier_enum.proto";
 import "carrier/types/common.proto";
 import "carrier/types/identitydata.proto";
 import "carrier/types/resourcedata.proto";
