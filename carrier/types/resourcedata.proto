@@ -6,7 +6,7 @@ package carrier.types;
 
 import "common/constant/carrier_enum.proto";
 import "carrier/types/identitydata.proto";
-import "carrier/types/taskdata.proto";
+
 
 // 单个组织的总算力信息
 message ResourcePB {
@@ -94,4 +94,15 @@ message ResourceUsageOverview {
   uint64 used_disk = 8;         // 服务的已用磁盘空间 (单位: byte)
 }
 
+// 任务需要花费的资源声明
+message TaskResourceCostDeclare {
+  // 任务所需的内存 (单位: byte)
+  uint64 memory = 1;
+  // 任务所需的核数 (单位: 个)
+  uint32 processor = 2;
+  // 任务所需的带宽 (单位: bps)
+  uint64 bandwidth = 3;
+  // 任务所需的运行时长 (单位: ms)
+  uint64 duration = 4;
+}
 

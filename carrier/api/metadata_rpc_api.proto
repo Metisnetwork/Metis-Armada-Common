@@ -4,7 +4,6 @@ option go_package = "pb/carrier/api";
 
 package carrier.api;
 
-import "common/constant/carrier_enum.proto";
 import "carrier/types/common.proto";
 import "carrier/types/identitydata.proto";
 import "carrier/types/metadata.proto";
