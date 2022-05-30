@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-//option go_package = "pb/fighter/types";
+option go_package = "github.com/datumtechs/datum-network-carrier/pb/fighter/types";
 
 package fighter.types;
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-//option go_package = "pb/carrier/db";
+option go_package = "github.com/datumtechs/datum-network-carrier/pb/carrier/db";
 
 package carrier.db;
 
