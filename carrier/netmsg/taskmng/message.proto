@@ -9,10 +9,10 @@ import "carrier/netmsg/common/message.proto";
 
 // 参与方反馈 各自对某个task的执行结果 (发给发起方)
 message TaskResultMsg {
-  common.MsgOption             msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];              //
-  repeated TaskEvent           task_event_list = 2 [(gogoproto.moretags) = "ssz-max:\"16777216\""];         // 任务在该参与方上产生的event
-  uint64                       create_at = 3 [(gogoproto.moretags) = "ssz-size:\"8\""];                     // TaskResultMsg 创建的时间戳 (单位: ms)
-  bytes                        sign = 4 [(gogoproto.moretags) = "ssz-max:\"1024\""];                        // TaskResultMsg 发起者签名
+  carrier.netmsg.common.MsgOption             msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];              //
+  repeated TaskEvent                          task_event_list = 2 [(gogoproto.moretags) = "ssz-max:\"16777216\""];         // 任务在该参与方上产生的event
+  uint64                                      create_at = 3 [(gogoproto.moretags) = "ssz-size:\"8\""];                     // TaskResultMsg 创建的时间戳 (单位: ms)
+  bytes                                       sign = 4 [(gogoproto.moretags) = "ssz-max:\"1024\""];                        // TaskResultMsg 发起者签名
 }
 
 message TaskEvent {
@@ -26,19 +26,19 @@ message TaskEvent {
 
 // 参与方 返回task的实时资源消耗
 message TaskResourceUsageMsg {
-  common.MsgOption              msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];     //
-  bytes                         task_id = 2 [(gogoproto.moretags) = "ssz-max:\"128\""];             // 任务id
-  common.ResourceUsage          usage = 3;                                                          // 资源消耗
-  uint64                        create_at = 4 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskResourceUsageMsg 创建的时间戳 (单位: ms)
-  bytes                         sign = 5 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskResourceUsageMsg 发起者签名
+  carrier.netmsg.common.MsgOption               msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];     //
+  bytes                                         task_id = 2 [(gogoproto.moretags) = "ssz-max:\"128\""];             // 任务id
+  carrier.netmsg.common.ResourceUsage           usage = 3;                                                          // 资源消耗
+  uint64                                        create_at = 4 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskResourceUsageMsg 创建的时间戳 (单位: ms)
+  bytes                                         sign = 5 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskResourceUsageMsg 发起者签名
 }
 
 
 // 任务终止消息
 message TaskTerminateMsg {
-  common.MsgOption              msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];     //
-  bytes                         task_id = 2 [(gogoproto.moretags) = "ssz-max:\"128\""];             // 任务id                        create_at = 4 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskResourceUsageMsg 创建的时间戳 (单位: ms)
-  uint64                        create_at = 3 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskTerminateMsg 创建的时间戳 (单位: ms)
-  bytes                         sign = 4 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskTerminateMsg 发起者签名
+  carrier.netmsg.common.MsgOption               msg_option = 1 [(gogoproto.moretags) = "ssz-max:\"16777216\""];     //
+  bytes                                         task_id = 2 [(gogoproto.moretags) = "ssz-max:\"128\""];             // 任务id                        create_at = 4 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskResourceUsageMsg 创建的时间戳 (单位: ms)
+  uint64                                        create_at = 3 [(gogoproto.moretags) = "ssz-size:\"8\""];            // TaskTerminateMsg 创建的时间戳 (单位: ms)
+  bytes                                         sign = 4 [(gogoproto.moretags) = "ssz-max:\"1024\""];               // TaskTerminateMsg 发起者签名
 }
 

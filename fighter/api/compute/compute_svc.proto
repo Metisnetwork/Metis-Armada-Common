@@ -6,7 +6,7 @@ package fighter.api.compute;
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
-import "figjter/types/types.proto";
+import "fighter/types/types.proto";
 
 service ComputeProvider {
    rpc GetStatus(google.protobuf.Empty) returns (GetStatusReply) {

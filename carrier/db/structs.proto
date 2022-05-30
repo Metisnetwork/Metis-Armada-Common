@@ -43,10 +43,10 @@ message StringArrayPB {
 }
 
 message TaskArrayPB {
-    repeated types.TaskPB task_list = 1;
+    repeated carrier.types.TaskPB task_list = 1;
 }
 
 message TaskEventArrayPB {
-    repeated types.TaskEvent task_event_list = 1;
+    repeated carrier.types.TaskEvent task_event_list = 1;
 }
 

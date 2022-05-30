@@ -8,7 +8,7 @@ import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 import "common/fighter_enum.proto";
 import "common/carrier_enum.proto";
-import "figjter/types/types.proto";
+import "fighter/types/types.proto";
 
 
 service DataProvider {

@@ -4,7 +4,7 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "common/carrier_enum.proto";
+import "common/constant/carrier_enum.proto";
 import "carrier/types/metadata.proto";
 import "carrier/types/taskdata.proto";
 
@@ -43,7 +43,7 @@ message MetadataAuthorityMsg {
    */
   string                        metadata_auth_id = 1;
   string                        user = 2;
-  common.UserType                      user_type = 3;
+  common.constant.UserType      user_type = 3;
   MetadataAuthority             auth = 4;
   bytes                         sign = 5;
   uint64                        create_at = 6;

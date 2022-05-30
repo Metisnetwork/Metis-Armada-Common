@@ -4,7 +4,7 @@ option go_package = "pb/carrier/types";
 
 package carrier.types;
 
-import "common/carrier_enum.proto";
+import "common/constant/carrier_enum.proto";
 
 // IdentityData represents the stored data structure.
 message IdentityPB {
@@ -12,8 +12,8 @@ message IdentityPB {
   string                        node_id = 2;          // 组织的 p2p用的 nodeId
   string                        node_name = 3;        // 组织的名称
   string                        data_id = 4;          // 预留
-  common.DataStatus             data_status = 5;      // the status of data for local storage, 1 means valid, 2 means invalid
-  common.CommonStatus           status = 6;           // the status of data for datacenter, 1 means valid, 2 means invalid
+  common.constant.DataStatus    data_status = 5;      // the status of data for local storage, 1 means valid, 2 means invalid
+  common.constant.CommonStatus  status = 6;           // the status of data for datacenter, 1 means valid, 2 means invalid
   string                        credential = 7;       // json format for credential
   uint64                        update_at = 8;        // UTC毫秒数
   string                        image_url = 9;        // the link of face image (with a length limit)
@@ -31,9 +31,9 @@ message Organization  {
   // the identity for org
   string identity_id = 3;
   // the status of data for local storage, 1 means valid, 2 means invalid
-  common.DataStatus data_status = 4;
+  common.constant.DataStatus data_status = 4;
   // the status of data for datacenter, 1 means valid, 2 means invalid
-  common.CommonStatus status = 5;
+  common.constant.CommonStatus status = 5;
   //v 3.0
   // the last_update time of corresponding datacenter (unit: UTC ms)
   uint64 update_at = 6;
