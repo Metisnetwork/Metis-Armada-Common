@@ -21,8 +21,6 @@ service ComputeProvider {
         };
   }
 
-  rpc UploadShard(stream UploadShardReq) returns (UploadShardReply) {}
-
   rpc HandleTaskReadyGo(fighter.types.TaskReadyGoReq) returns (fighter.types.TaskReadyGoReply) {
         option(google.api.http) = {
         post: "/compute/handleTaskReadyGo"
@@ -38,21 +36,6 @@ service ComputeProvider {
   }
 }
 
-message UploadShardReq {
-  message Info {
-    string task_id = 1;
-    string data_id = 2;
-  }
-  oneof data {
-    Info meta = 1;
-    bytes content = 2;
-  }
-}
-
-message UploadShardReply {
-  int32  status = 1;    // 响应码
-  string msg = 2;       // 错误信息
-}
 
 message GetStatusReply {
   int32  status = 1;    // 响应码
