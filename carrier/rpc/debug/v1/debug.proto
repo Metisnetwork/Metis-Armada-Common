@@ -227,9 +227,9 @@ message ConsensusProposalTickInfo{
   string proposal_id = 3;
 }
 message GetConsensusBlackOrgResponse{
-  message ConsensusProposalList{
+  message ConsensusProposals{
     string                                      identity_id      = 1;
-    repeated ConsensusProposalTickInfo          proposal_info_list = 2;
+    repeated ConsensusProposalTickInfo          proposal_infos = 2;
   }
-  repeated ConsensusProposalList                all_black_org    = 3;
+  repeated ConsensusProposals                all_black_org    = 3;
 }
