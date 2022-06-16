@@ -71,6 +71,12 @@ service Debug {
       get: "/carrier/v1/debug/2pcProposalConfirm"
     };
   }
+  // 获取当前组织黑名单
+  rpc GetAllBlackOrg(google.protobuf.Empty) returns (GetConsensusBlackOrgResponse){
+    option (google.api.http) = {
+      get: "/carrier/v1/debug/getAllBlackOrg"
+    };
+  }
 }
 
 message PeerRequest {
@@ -214,4 +220,16 @@ message Get2pcProposalConfirmResponse{
   map<string, carrier.netmsg.consensus.twopc.ConfirmVote>          votes = 1;
   map<string, uint32>                                              yesVotes = 2;
   map<string, uint32>                                              voteStatus = 3;
+}
+message ConsensusProposalTickInfo{
+  string task_id = 1;
+  string node_id = 2;
+  string proposal_id = 3;
+}
+message GetConsensusBlackOrgResponse{
+  message ConsensusProposalList{
+    string                                      identity_id      = 1;
+    repeated ConsensusProposalTickInfo          proposal_info_list = 2;
+  }
+  repeated ConsensusProposalList                all_black_org    = 3;
 }
