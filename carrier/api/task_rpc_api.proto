@@ -89,10 +89,11 @@ message EstimateTaskGasRequest {
 }
 
 message TokenItem {
-  common.constant.TokenType       token_type = 1;       // token类型
-  string                          token_address = 2;    // token合约地址
-  uint64                          id  = 3;              // available if token_type=erc1155 or erc721
-  uint64                          value = 4;            // token value
+  common.constant.TokenType       token_type = 1;                       // token类型
+  string                          token_address = 2;                    // token合约地址
+  uint64                          id  = 3;                              // available if token_type=erc1155 or erc721
+  uint64                          value = 4;                            // token value
+  bool                            expected_for_encrypt_algorithm = 5;   // available if token_type=erc1155 or erc721
 }
 
 // 预估gas response
