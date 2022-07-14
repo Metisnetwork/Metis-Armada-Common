@@ -256,11 +256,11 @@ message PrepareVote{
   string vote_option            =2;
   TaskPeerInfo peer_info        =3;
   uint64 create_at              =4;
-  string sign                   =5;
+  bytes  sign                   =5;
 }
 message ConfirmVote{
   MsgOption msg_option          =1;
   string vote_option            =2;
   uint64 create_at              =3;
-  string sign                   =4;
+  bytes  sign                   =4;
 }
