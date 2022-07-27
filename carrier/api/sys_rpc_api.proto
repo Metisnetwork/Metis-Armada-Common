@@ -5,6 +5,7 @@ option go_package = "github.com/datumtechs/datum-network-carrier/pb/carrier/api"
 package carrier.api;
 
 import "common/constant/carrier_enum.proto";
+import "common/constant/fighter_enum.proto";
 import "carrier/types/common.proto";
 import "carrier/types/taskdata.proto";
 import "carrier/types/resourcedata.proto";
