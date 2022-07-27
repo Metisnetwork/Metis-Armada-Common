@@ -283,7 +283,7 @@ message DownloadTaskResultDataRequest {
   map<string, string> options = 2; // for support download compress file or dir
 }
 
-message DownloadTaskResultDataReply {
+message DownloadTaskResultDataResponse {
   oneof data {
     common.constant.TaskStatus status = 1;
     bytes content = 2;
@@ -468,7 +468,7 @@ service YarnService {
   //    };
   //  }
 
-  rpc DownloadTaskResultData(DownloadTaskResultDataRequest) returns (stream DownloadTaskResultDataReply) {
+  rpc DownloadTaskResultData(DownloadTaskResultDataRequest) returns (stream DownloadTaskResultDataResponse) {
     option (google.api.http) = {
       get: "/carrier/v1/yarn/downloadTaskResultData"
     };
