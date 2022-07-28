@@ -4,6 +4,7 @@ option go_package = "github.com/datumtechs/datum-network-carrier/pb/carrier/api"
 
 package carrier.api;
 
+import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 
 
