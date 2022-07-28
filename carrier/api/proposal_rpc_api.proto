@@ -4,6 +4,8 @@ option go_package = "github.com/datumtechs/datum-network-carrier/pb/carrier/api"
 
 package carrier.api;
 
+import "google/api/annotations.proto";
+
 message SubmitProposalRequest {
   int32           proposal_type = 1;            //1:增加 2:踢出 3:主动退出
   string          proposal_url = 2;
