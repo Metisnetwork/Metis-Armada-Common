@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "github.com/datumtechs/datum-network-carrier/pb/carrier/api";
+
+package carrier.api;
+
+
+message TransactionInfo {
+  uint64          block_number = 1;
+  string          transaction_hash = 2;
+  uint32          transaction_index = 3;
+}
