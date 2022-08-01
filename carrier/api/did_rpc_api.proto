@@ -6,7 +6,7 @@ package carrier.api;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
-import "transaction_info.proto";
+import "carrier/api/transaction_info.proto";
 
 message CreateDIDResponse {
   int32           status = 1;         // 响应码
