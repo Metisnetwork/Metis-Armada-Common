@@ -18,7 +18,7 @@ message SubmitProposalResponse {
   int32           status = 1;                      // 响应码
   string          msg = 2;                         // 错误信息
   string          proposalId = 3;
-  carrier.api.TxInfo transactionInfo = 4;
+  carrier.api.TxInfo tx_info = 4;
 }
 
 message WithdrawProposalRequest {
@@ -29,7 +29,7 @@ message WithdrawProposalResponse {
   int32           status = 1;                      // 响应码
   string          msg = 2;                         // 错误信息
   bool            result = 3;
-  carrier.api.TxInfo transactionInfo = 4;
+  carrier.api.TxInfo tx_info = 4;
 }
 
 message VoteProposalRequest {
@@ -40,7 +40,7 @@ message VoteProposalResponse {
   int32           status = 1;                      // 响应码
   string          msg = 2;                         // 错误信息
   bool            result = 3;
-  carrier.api.TxInfo transactionInfo = 4;
+  carrier.api.TxInfo tx_info = 4;
 }
 
 message EffectProposalRequest {
@@ -51,7 +51,7 @@ message EffectProposalResponse {
   int32           status = 1;                      // 响应码
   string          msg = 2;                         // 错误信息
   bool            result = 3;
-  carrier.api.TxInfo transactionInfo = 4;
+  carrier.api.TxInfo tx_info = 4;
 }
 
 service ProposalService {
