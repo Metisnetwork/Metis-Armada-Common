@@ -12,12 +12,13 @@ import "carrier/types/common.proto";
 message ApplyVCReq {
   string          issuer_did = 1;
   string          applicant_did = 2;
-  string          context = 3;        //option, "" means default
-  uint64          pct_id = 4;
-  string          claim = 5;
-  string          expiration_date = 6;
-  string          req_digest = 7;     //请求摘要SHA3
-  string          req_signature = 8;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥
+  string          context = 3;          //option, "" means default
+  uint64          pct_id = 4;           //map定义
+  string          claim = 5;            //map的json string
+  string          expiration_date = 6;  //option, "" means default
+  string          ext_info = 7;         //扩展字段, JSON, 透传到issuer
+  string          req_digest = 8;       //请求摘要SHA3, option
+  string          req_signature = 9;    //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
 }
 
 message CreateVCRequest {
@@ -40,8 +41,8 @@ message CreateVCResponse {
 message DownloadVCReq {
   string          issuer_did = 1;
   string          applicant_did = 2;
-  string          req_digest = 3;     //请求摘要SHA3
-  string          req_signature = 4;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥
+  string          req_digest = 3;     //请求摘要SHA3, option
+  string          req_signature = 4;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
 }
 
 
