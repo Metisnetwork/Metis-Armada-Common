@@ -87,14 +87,14 @@ service VcService {
 
   rpc DownloadVCLocal (LocalDownloadVCReq) returns (carrier.types.SimpleResponse) {
     option (google.api.http) = {
-      post: "/carrier/v1/did/applyVCLocal"
+      post: "/carrier/v1/did/downloadVCLocal"
       body: "*"
     };
   }
 
   rpc DownloadVCRemote (RemoteDownloadVCReq) returns (carrier.types.SimpleResponse) {
     option (google.api.http) = {
-      post: "/carrier/v1/did/applyVCRemote"
+      post: "/carrier/v1/did/downloadVCRemote"
       body: "*"
     };
   }
