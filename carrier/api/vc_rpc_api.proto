@@ -22,7 +22,7 @@ message RemoteApplyVCReq {
   string          issuer_did = 1;
   string          applicant_did = 2;
   string          context = 3;     //option, "" means default
-  string          pctId = 4;
+  uint64          pct_id = 4;
   string          claim = 5;      // json string
   string          expiration_date = 6;
   string          local_req_hash = 7;
