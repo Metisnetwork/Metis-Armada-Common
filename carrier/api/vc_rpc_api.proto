@@ -9,23 +9,15 @@ import "google/protobuf/empty.proto";
 import "carrier/api/tx_info.proto";
 import "carrier/types/common.proto";
 
-message LocalApplyVCReq {
+message ApplyVCReq {
   string          issuer_did = 1;
   string          applicant_did = 2;
-  string          context = 3;     //option, "" means default
+  string          context = 3;        //option, "" means default
   uint64          pct_id = 4;
   string          claim = 5;
   string          expiration_date = 6;
-}
-
-message RemoteApplyVCReq {
-  string          issuer_did = 1;
-  string          applicant_did = 2;
-  string          context = 3;     //option, "" means default
-  uint64          pct_id = 4;
-  string          claim = 5;      // json string
-  string          expiration_date = 6;
-  string          local_req_hash = 7;
+  string          req_digest = 7;     //请求摘要SHA3
+  string          req_signature = 8;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥
 }
 
 message CreateVCRequest {
@@ -44,15 +36,12 @@ message CreateVCResponse {
 }
 
 
-message LocalDownloadVCReq {
-  string          issuer_did = 1;
-  string          applicant_did = 2;
-}
 
-message RemoteDownloadVCReq {
+message DownloadVCReq {
   string          issuer_did = 1;
   string          applicant_did = 2;
-  string          local_req_hash = 3;
+  string          req_digest = 3;     //请求摘要SHA3
+  string          req_signature = 4;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥
 }
 
 
@@ -63,7 +52,7 @@ message DownloadVCResponse {
 }
 
 service VcService {
-  rpc ApplyVCLocal (LocalApplyVCReq) returns (carrier.types.SimpleResponse) {
+  rpc ApplyVCLocal (ApplyVCReq) returns (carrier.types.SimpleResponse) {
     option (google.api.http) = {
       post: "/carrier/v1/did/applyVCLocal"
       body: "*"
@@ -71,7 +60,7 @@ service VcService {
   }
 
 
-  rpc ApplyVCRemote (RemoteApplyVCReq) returns (carrier.types.SimpleResponse) {
+  rpc ApplyVCRemote (ApplyVCReq) returns (carrier.types.SimpleResponse) {
     option (google.api.http) = {
       post: "/carrier/v1/did/applyVCRemote"
       body: "*"
@@ -85,14 +74,14 @@ service VcService {
     };
   }
 
-  rpc DownloadVCLocal (LocalDownloadVCReq) returns (carrier.types.SimpleResponse) {
+  rpc DownloadVCLocal (DownloadVCReq) returns (carrier.types.SimpleResponse) {
     option (google.api.http) = {
       post: "/carrier/v1/did/downloadVCLocal"
       body: "*"
     };
   }
 
-  rpc DownloadVCRemote (RemoteDownloadVCReq) returns (carrier.types.SimpleResponse) {
+  rpc DownloadVCRemote (DownloadVCReq) returns (carrier.types.SimpleResponse) {
     option (google.api.http) = {
       post: "/carrier/v1/did/downloadVCRemote"
       body: "*"
