@@ -107,14 +107,14 @@ service VcService {
     };
   }
 
-  rpc DownloadVCLocal (DownloadVCReq) returns (carrier.types.SimpleResponse) {
+  rpc DownloadVCLocal (DownloadVCReq) returns (DownloadVCResponse) {
     option (google.api.http) = {
       post: "/carrier/v1/did/downloadVCLocal"
       body: "*"
     };
   }
 
-  rpc DownloadVCRemote (DownloadVCReq) returns (carrier.types.SimpleResponse) {
+  rpc DownloadVCRemote (DownloadVCReq) returns (DownloadVCResponse) {
     option (google.api.http) = {
       post: "/carrier/v1/did/downloadVCRemote"
       body: "*"
