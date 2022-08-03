@@ -40,14 +40,15 @@ service DIDService {
 
 message ApplyVCReq {
   string          issuer_did = 1;
-  string          applicant_did = 2;
-  string          context = 3;          //option, "" means default
-  uint64          pct_id = 4;           //map定义
-  string          claim = 5;            //map的json string
-  string          expiration_date = 6;  //option, "" means default
-  string          ext_info = 7;         //扩展字段, JSON, 透传到issuer
-  string          req_digest = 8;       //请求摘要SHA3, option
-  string          req_signature = 9;    //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
+  string          issuer_url = 2;
+  string          applicant_did = 3;
+  string          context = 4;          //option, "" means default
+  uint64          pct_id = 5;           //map定义
+  string          claim = 6;            //map的json string
+  string          expiration_date = 7;  //option, "" means default
+  string          ext_info = 8;         //扩展字段, JSON, 透传到issuer
+  string          req_digest = 9;       //请求摘要SHA3, option
+  string          req_signature = 10;    //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
 }
 
 message CreateVCRequest {
@@ -69,16 +70,18 @@ message CreateVCResponse {
 
 message DownloadVCReq {
   string          issuer_did = 1;
-  string          applicant_did = 2;
-  string          req_digest = 3;     //请求摘要SHA3, option
-  string          req_signature = 4;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
+  string          issuer_url = 2;
+  string          applicant_did = 3;
+  string          req_digest = 4;     //请求摘要SHA3, option
+  string          req_signature = 5;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
 }
 
 
 message DownloadVCResponse {
-  int32           status = 1;                      // 响应码
-  string          msg = 2;                         // 错误信息
-  string          vc =3;                           // json string
+  int32           status = 1;                       // 响应码
+  string          msg = 2;                          // 错误信息
+  string          vc =3;                            // json string
+  string          ext_info = 4;                     //扩展字段, JSON
 }
 
 service VcService {
