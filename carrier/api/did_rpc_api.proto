@@ -6,18 +6,109 @@ package carrier.api;
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
-import "carrier/api/tx_info.proto";
+import "carrier/types/common.proto";
+
+message TxInfo {
+  uint64          block_number = 1;
+  string          tx_hash = 2;
+  uint32          tx_index = 3;
+}
+
 
 message CreateDIDResponse {
   int32           status = 1;         // 响应码
   string          msg = 2;            // 错误信息
   string          did = 3;             // user's did
-  carrier.api.TxInfo tx_info = 4;
+  TxInfo tx_info = 4;
 }
+
+
 service DIDService {
   rpc CreateDID (google.protobuf.Empty) returns (CreateDIDResponse) {
     option (google.api.http) = {
       post: "/carrier/v1/did/createDID"
+      body: "*"
+    };
+  }
+}
+
+
+message ApplyVCReq {
+  string          issuer_did = 1;
+  string          applicant_did = 2;
+  string          context = 3;          //option, "" means default
+  uint64          pct_id = 4;           //map定义
+  string          claim = 5;            //map的json string
+  string          expiration_date = 6;  //option, "" means default
+  string          ext_info = 7;         //扩展字段, JSON, 透传到issuer
+  string          req_digest = 8;       //请求摘要SHA3, option
+  string          req_signature = 9;    //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
+}
+
+message CreateVCRequest {
+  string          applicant_did = 1;  // user's did
+  string          context = 2;        // default ""
+  uint64          pct_id = 3;         // pct id
+  string          claim = 4;          //json string
+  string          expiration_date = 5; //UTC time string, default ""
+}
+
+message CreateVCResponse {
+  int32           status = 1;                      // 响应码
+  string          msg = 2;                         // 错误信息
+  string          vc = 3;                           // json string
+  carrier.api.TxInfo tx_info = 4;
+}
+
+
+
+message DownloadVCReq {
+  string          issuer_did = 1;
+  string          applicant_did = 2;
+  string          req_digest = 3;     //请求摘要SHA3, option
+  string          req_signature = 4;  //对请求摘要的签名。从req_digest,req_signature能恢复出签名私钥对应的公钥, option
+}
+
+
+message DownloadVCResponse {
+  int32           status = 1;                      // 响应码
+  string          msg = 2;                         // 错误信息
+  string          vc =3;                           // json string
+}
+
+service VcService {
+  rpc ApplyVCLocal (ApplyVCReq) returns (carrier.types.SimpleResponse) {
+    option (google.api.http) = {
+      post: "/carrier/v1/did/applyVCLocal"
+      body: "*"
+    };
+  }
+
+
+  rpc ApplyVCRemote (ApplyVCReq) returns (carrier.types.SimpleResponse) {
+    option (google.api.http) = {
+      post: "/carrier/v1/did/applyVCRemote"
+      body: "*"
+    };
+  }
+
+  rpc CreateVC (CreateVCRequest) returns (CreateVCResponse) {
+    option (google.api.http) = {
+      post: "/carrier/v1/did/createVC"
+      body: "*"
+    };
+  }
+
+  rpc DownloadVCLocal (DownloadVCReq) returns (carrier.types.SimpleResponse) {
+    option (google.api.http) = {
+      post: "/carrier/v1/did/downloadVCLocal"
+      body: "*"
+    };
+  }
+
+  rpc DownloadVCRemote (DownloadVCReq) returns (carrier.types.SimpleResponse) {
+    option (google.api.http) = {
+      post: "/carrier/v1/did/downloadVCRemote"
       body: "*"
     };
   }
