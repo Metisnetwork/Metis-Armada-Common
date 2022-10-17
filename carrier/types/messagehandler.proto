@@ -55,3 +55,20 @@ message TaskMsg {
    */
   TaskPB                  data = 1;
 }
+
+message Workflow {
+  string                             WorkflowId = 1;
+  string                             Desc = 2;
+  string                             WorkflowName = 3;
+  common.constant.WorkFlowPolicyType PolicyType = 4;
+  string                             Policy = 5;
+  string                             User = 6;
+  common.constant.UserType           UserType = 7;
+  bytes                              Sign = 8;
+  repeated TaskMsg                   Tasks = 9;
+  uint64                             CreateAt = 10;
+}
+
+message WorkflowMsg {
+  Workflow data = 1;
+}
