@@ -6,7 +6,9 @@ package carrier.api;
 
 import "common/constant/carrier_enum.proto";
 import "carrier/types/common.proto";
+import "carrier/types/messagehandler.proto";
 import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
 import "carrier/api/task_rpc_api.proto";
 
 message PublishWorkFlowDeclareRequest {
@@ -50,6 +52,9 @@ message QueryWorkStatusResponse {
   repeated WorkFlowStatus workflow_status_list = 3;
 }
 
+message QueryWorkflowDetailsResponse {
+  repeated  carrier.types.Workflow workflow_details_list = 1;
+}
 // ## 工作流 相关接口
 service WorkFlowService {
   //发布工作流
@@ -64,6 +69,12 @@ service WorkFlowService {
     option (google.api.http) = {
       post: "/carrier/v1/workflow/getStatus"
       body: "*"
+    };
+  }
+  //查询当前组织所有还未完成的工作流详情
+  rpc QueryAllWorkFlowDetails (google.protobuf.Empty) returns (QueryWorkStatusResponse) {
+    option (google.api.http) = {
+      get: "/carrier/v1/workflow/getAllWorkflowDetails"
     };
   }
 }
