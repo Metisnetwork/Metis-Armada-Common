@@ -72,7 +72,7 @@ service WorkFlowService {
     };
   }
   //查询当前组织所有还未完成的工作流详情
-  rpc QueryAllWorkFlowDetails (google.protobuf.Empty) returns (QueryWorkStatusResponse) {
+  rpc QueryAllWorkFlowDetails (google.protobuf.Empty) returns (QueryWorkflowDetailsResponse) {
     option (google.api.http) = {
       get: "/carrier/v1/workflow/getAllWorkflowDetails"
     };
