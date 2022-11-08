@@ -23,6 +23,7 @@ message NeedExecuteTask {
   TaskConsumeSpec                                                     consume_spec = 11;
 }
 
+// add by v0.5.1 fix
 message TaskConsumeSpec {
   repeated uint32                                                     consume_types = 1;
   repeated string                                                     consume_options = 2;
