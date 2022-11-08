@@ -20,6 +20,10 @@ message NeedExecuteTask {
   PrepareVoteResource                                                 local_resource = 8;
   carrier.netmsg.consensus.twopc.ConfirmTaskPeerInfo                  resources = 9;
   string                                                              err_str = 10;
-  string                                                              consume_query_id = 11;
-  string                                                              consume_spec = 12;
+  TaskConsumeSpec                                                     consume_spec = 11;
+}
+
+message TaskConsumeSpec {
+  repeated uint32                                                     consume_types = 1;
+  repeated string                                                     consume_options = 2;
 }
